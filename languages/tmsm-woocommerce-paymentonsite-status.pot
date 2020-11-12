@@ -1,0 +1,78 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TMSM WooCommerce Custom Admin\n"
+"POT-Creation-Date: 2018-04-09 11:43+0200\n"
+"PO-Revision-Date: 2014-10-24 21:08+0100\n"
+"Last-Translator: Nicolas Mollet <nico.mollet@gmail.com>\n"
+"Language-Team: Nicolas Mollet <nico.mollet@gmail.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2;_x:1,2c;esc_attr__;esc_attr_e;"
+"esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:89
+msgctxt "Order status"
+msgid "Processing"
+msgstr ""
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:89
+msgctxt "Order status"
+msgid "Paid"
+msgstr ""
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:91
+msgctxt "Order status"
+msgid "Completed"
+msgstr ""
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:91
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:115
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:163
+msgctxt "Order status"
+msgid "Paymentonsite"
+msgstr ""
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:92
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:120
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:164
+msgctxt "Order status"
+msgid "Processed"
+msgstr ""
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:127
+msgid "Change status: "
+msgstr ""
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:143
+msgid "Mark paid"
+msgstr ""
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:147
+msgid "Mark paymentonsite"
+msgstr ""
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:148
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:192
+msgid "Mark as processed"
+msgstr ""
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:181
+msgctxt "Change order status"
+msgid "Ship"
+msgstr ""
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:234
+msgid "Status changed to Processed"
+msgstr ""
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-status-poststatus.php:21
+msgid "Processed"
+msgstr ""

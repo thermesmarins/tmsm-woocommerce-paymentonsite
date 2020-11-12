@@ -1,0 +1,185 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: StormBringer Wordpress theme\n"
+"POT-Creation-Date: 2018-04-09 11:44+0200\n"
+"PO-Revision-Date: 2018-04-09 11:44+0200\n"
+"Last-Translator: \n"
+"Language-Team: Nicolas Mollet <nico.mollet@gmail.com>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2;_x:1,2c;esc_attr__;esc_attr_e;"
+"esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:89
+msgctxt "Order status"
+msgid "Processing"
+msgstr "En cours"
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:89
+msgctxt "Order status"
+msgid "Paid"
+msgstr "Payée"
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:91
+msgctxt "Order status"
+msgid "Completed"
+msgstr "Terminé"
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:91
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:115
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:163
+msgctxt "Order status"
+msgid "Paymentonsite"
+msgstr "Expédiée"
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:92
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:120
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:164
+msgctxt "Order status"
+msgid "Processed"
+msgstr "Terminée"
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:127
+msgid "Change status: "
+msgstr "Changer de statut&nbsp;:"
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:143
+msgid "Mark paid"
+msgstr "Marquer payée"
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:147
+msgid "Mark paymentonsite"
+msgstr "Marquer expédiée"
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:148
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:192
+msgid "Mark as processed"
+msgstr "Terminer"
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:181
+msgctxt "Change order status"
+msgid "Ship"
+msgstr "Expédier"
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:234
+msgid "Status changed to Processed"
+msgstr "Statut changé vers Terminée"
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-status-poststatus.php:21
+msgid "Processed"
+msgstr "Terminée"
+
+#~ msgid "Change your mailjet settings"
+#~ msgstr "Modifier vos réglages Mailjet"
+
+#~ msgid "Mailjet"
+#~ msgstr "Mailjet"
+
+#~ msgid "Pricing & Discounts"
+#~ msgstr "Promotions"
+
+#~ msgid "M j, Y"
+#~ msgstr "j M Y"
+
+#~ msgid "Customers"
+#~ msgstr "Clients"
+
+#~ msgid "Export Orders"
+#~ msgstr "Exporter Commandes"
+
+#~ msgid "Registered"
+#~ msgstr "Inscription"
+
+#~ msgid "Y/m/d"
+#~ msgstr "Y/m/d"
+
+#~ msgid "Y/m/d g:i:s a"
+#~ msgstr "Y/m/d H:i:s"
+
+#~ msgid "Orders"
+#~ msgstr "Commandes"
+
+#~ msgid "Cache"
+#~ msgstr "Cache"
+
+#~ msgid "Checkout fields"
+#~ msgstr "Champs de commande"
+
+#~ msgid "Title field"
+#~ msgstr "Champ civilité"
+
+#~ msgid "Birthday field"
+#~ msgstr "Champ anniversaire"
+
+#~ msgid "Orders Manager"
+#~ msgstr "Gestionnaire commandes"
+
+#~ msgctxt "birthday date format"
+#~ msgid "mm/dd/yyyy"
+#~ msgstr "jj/mm/aaaa"
+
+#~ msgctxt "birthday date format conversion"
+#~ msgid "Y-m-d"
+#~ msgstr "Y-m-d"
+
+#~ msgctxt "birthday date format"
+#~ msgid "m/d/Y"
+#~ msgstr "d/m/Y"
+
+#~ msgctxt "honorific title"
+#~ msgid "Ms"
+#~ msgstr "Mme"
+
+#~ msgctxt "honorific title"
+#~ msgid "Mr"
+#~ msgstr "M."
+
+#~ msgctxt "honorific title label"
+#~ msgid "Title"
+#~ msgstr "Civilité"
+
+#~ msgctxt "birthday label"
+#~ msgid "Birthday"
+#~ msgstr "Anniversaire"
+
+#~ msgctxt "birthday placeholder"
+#~ msgid "mm/dd/yyyy"
+#~ msgstr "jj/mm/aaaa"
+
+#~ msgctxt "birthday date format conversion"
+#~ msgid "m/d/Y"
+#~ msgstr "d/m/Y"
+
+#, fuzzy
+#~| msgctxt "birthday date format conversion"
+#~| msgid "m/d/Y"
+#~ msgctxt "birthday date format"
+#~ msgid "m/d/y"
+#~ msgstr "d/m/Y"
+
+#~ msgctxt "Order status"
+#~ msgid "Pending payment"
+#~ msgstr "Attente paiement"
+
+#~ msgctxt "Order status"
+#~ msgid "On hold"
+#~ msgstr "En attente"
+
+#~ msgctxt "Order status"
+#~ msgid "Cancelled"
+#~ msgstr "Annulée"
+
+#~ msgctxt "Order status"
+#~ msgid "Refunded"
+#~ msgstr "Remboursée"
+
+#~ msgctxt "Order status"
+#~ msgid "Failed"
+#~ msgstr "Échouée"
