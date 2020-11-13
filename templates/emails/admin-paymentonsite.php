@@ -1,8 +1,8 @@
 <?php
 /**
- * Customer paymentonsite email
+ * Admin paymentonsite email
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/emails/customer-paymentonsite.php.
+ * This template can be overridden by copying it to yourtheme/woocommerce/emails/admin-paymentonsite.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -11,7 +11,7 @@
  * the readme will list any important changes.
  *
  * @see https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates/Emails
+ * @package WooCommerce/Templates/Emails/HTML
  * @version 3.7.0
  */
 
@@ -22,20 +22,8 @@ defined( 'ABSPATH' ) || exit;
  */
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
-<?php /* translators: %s: Customer first name */ ?>
-	<p><?php printf( esc_html__( 'Hi %s,', 'tmsm-woocommerce-paymentonsite-status' ), esc_html( $order->get_billing_first_name() ) ); ?></p>
-
-<?php
-
-/**
- * Show user-defined additional content - this is set in each email's settings.
- */
-if ( $additional_content ) {
-	echo wp_kses_post( wpautop( wptexturize( $additional_content ) ) );
-}
-?>
-
-
+<?php /* translators: %s: Customer billing full name */ ?>
+<p><?php printf( esc_html__( 'You’ve received the following order with payment on site from %s:', 'tmsm-woocommerce-paymentonsite-status' ), $order->get_formatted_billing_full_name() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 <?php
 
 /*
@@ -57,7 +45,12 @@ do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text, 
  */
 do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email );
 
-
+/**
+ * Show user-defined additional content - this is set in each email's settings.
+ */
+if ( $additional_content ) {
+	echo wp_kses_post( wpautop( wptexturize( $additional_content ) ) );
+}
 
 /*
  * @hooked WC_Emails::email_footer() Output the email footer

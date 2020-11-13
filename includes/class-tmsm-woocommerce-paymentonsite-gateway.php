@@ -4,6 +4,23 @@
  *
  * @package WooCommerce\Gateways
  */
+
+use Automattic\Jetpack\Constants;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+/**
+ * Payment on Site Gateway.
+ *
+ * Provides a Payment on Site Gateway.
+ *
+ * @class       WC_Gateway_Paymentonsite
+ * @extends     WC_Gateway_COD
+ * @version     2.1.0
+ * @package     WooCommerce/Classes/Payment
+ */
 class WC_Gateway_Paymentonsite extends WC_Gateway_COD {
 
 	/**
@@ -18,6 +35,8 @@ class WC_Gateway_Paymentonsite extends WC_Gateway_COD {
 		parent::__construct();
 
 		$this->override_form_fields();
+
+		add_filter( 'woocommerce_payment_complete_order_status', array( $this, 'change_payment_complete_order_status' ), 10, 3 );
 
 		// Customer Emails.
 		add_action( 'woocommerce_email_before_order_table', array( $this, 'email_instructions' ), -30, 3 );
@@ -102,6 +121,7 @@ class WC_Gateway_Paymentonsite extends WC_Gateway_COD {
 	 * Loads all of the shipping method options for the enable_for_methods field.
 	 *
 	 * @return array
+	 * @throws Exception
 	 */
 	private function load_shipping_method_options() {
 		// Since this is expensive, we only want to do it if we're actually on the settings page.

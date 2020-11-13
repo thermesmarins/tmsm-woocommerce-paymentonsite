@@ -1,10 +1,10 @@
 .order-status.status-paymentonsite {
-  background: #f8dda7;
-  color: #94660c;
+  background: #c6e3dd;
+  color: #2b5546;
 }
 
 .widefat .column-wc_actions a.paymentonsite:after{
   content: "\f310" !important;
-  background: #f8dda7;
-  color: #94660c;
+  background: #c6e3dd;
+  color: #2b5546;
 }

@@ -32,14 +32,6 @@ if ( $additional_content ) {
 	echo "\n\n----------------------------------------\n\n";
 }
 
-/**
- * Show shop address
- */
-if ( $shop_address ) {
-	echo sprintf( esc_html__( 'Your order is awaiting payment on site, please get it and pay at: %1$s%2$s', 'tmsm-woocommerce-paymentonsite-status' ).'<br>',  esc_html( wp_strip_all_tags( wptexturize( $shop_address ) ) );
-	echo "\n\n----------------------------------------\n\n";
-}
-
 /*
  * @hooked WC_Emails::order_details() Shows the order details table.
  * @hooked WC_Structured_Data::generate_order_data() Generates structured data.

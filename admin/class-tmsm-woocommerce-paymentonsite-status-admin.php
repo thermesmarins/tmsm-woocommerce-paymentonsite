@@ -84,8 +84,10 @@ class Tmsm_Woocommerce_Paymentonsite_Status_Admin {
 	 */
 	public function register_emails( $emails ) {
 		require_once 'emails/class-tmsm-woocommerce-paymentonsite-status-customer-email.php';
+		require_once 'emails/class-tmsm-woocommerce-paymentonsite-status-admin-email.php';
 
 		$emails['Tmsm_Woocommerce_Paymentonsite_Status_Customer_Email'] = new Tmsm_Woocommerce_Paymentonsite_Status_Customer_Email();
+		$emails['Tmsm_Woocommerce_Paymentonsite_Status_Admin_Email'] = new Tmsm_Woocommerce_Paymentonsite_Status_Admin_Email();
 
 		return $emails;
 	}
