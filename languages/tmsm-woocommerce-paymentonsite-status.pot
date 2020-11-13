@@ -1,8 +1,8 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: TMSM WooCommerce Custom Admin\n"
-"POT-Creation-Date: 2018-04-09 11:43+0200\n"
+"Project-Id-Version: TMSM WooCommerce Payment On Site Status\n"
+"POT-Creation-Date: 2020-11-13 11:08+0100\n"
 "PO-Revision-Date: 2014-10-24 21:08+0100\n"
 "Last-Translator: Nicolas Mollet <nico.mollet@gmail.com>\n"
 "Language-Team: Nicolas Mollet <nico.mollet@gmail.com>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2.4\n"
 "X-Poedit-KeywordsList: _e;__;_n:1,2;_x:1,2c;esc_attr__;esc_attr_e;"
 "esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-Basepath: .\n"
@@ -18,61 +18,101 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:89
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:102
 msgctxt "Order status"
-msgid "Processing"
+msgid "Payment On Site"
 msgstr ""
 
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:89
-msgctxt "Order status"
-msgid "Paid"
+#: ../admin/emails/class-tmsm-woocommerce-paymentonsite-status-customer-email.php:33
+msgid "Order with payment on site"
 msgstr ""
 
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:91
-msgctxt "Order status"
-msgid "Completed"
+#: ../admin/emails/class-tmsm-woocommerce-paymentonsite-status-customer-email.php:35
+msgid ""
+"This is an order notification sent to customers containing order "
+"details after an order has payment on site."
 msgstr ""
 
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:91
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:115
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:163
-msgctxt "Order status"
-msgid "Paymentonsite"
+#: ../admin/emails/class-tmsm-woocommerce-paymentonsite-status-customer-email.php:61
+msgid "Your {site_title} order has been received!"
 msgstr ""
 
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:92
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:120
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:164
-msgctxt "Order status"
-msgid "Processed"
+#: ../admin/emails/class-tmsm-woocommerce-paymentonsite-status-customer-email.php:71
+msgid "Thank you for your order"
 msgstr ""
 
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:127
-msgid "Change status: "
+#: ../admin/emails/class-tmsm-woocommerce-paymentonsite-status-customer-email.php:167
+msgid "We look forward to fulfilling your order soon."
 msgstr ""
 
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:143
-msgid "Mark paid"
-msgstr ""
-
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:147
-msgid "Mark paymentonsite"
-msgstr ""
-
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:148
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:192
-msgid "Mark as processed"
-msgstr ""
-
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:181
-msgctxt "Change order status"
-msgid "Ship"
-msgstr ""
-
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:234
-msgid "Status changed to Processed"
-msgstr ""
-
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:33
 #: ../includes/class-tmsm-woocommerce-paymentonsite-status-poststatus.php:21
-msgid "Processed"
+msgid "Payment On Site"
+msgstr ""
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:34
+msgid "Have your customers pay on site."
+msgstr ""
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:43
+msgid "Enable payment on site"
+msgstr ""
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:44
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:45
+msgid "Payment on site"
+msgstr ""
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:46
+msgid ""
+"Instructions that will be added to the thank you page and "
+"confirmation email. Use the placeholder {shop_address} for the "
+"shop address."
+msgstr ""
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:47
+msgid "Payment on site at {shop_address}"
+msgstr ""
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:49
+msgid "Accept Payment On Site if the order is virtual"
+msgstr ""
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:111
+#, php-format
+msgid "Any &quot;%1$s&quot; method"
+msgstr ""
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:126
+#, php-format
+msgid "%1$s (#%2$s)"
+msgstr ""
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:129
+#, php-format
+msgid "%1$s &ndash; %2$s"
+msgstr ""
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:129
+msgid "Other locations"
+msgstr ""
+
+#: ../templates/emails/customer-paymentonsite.php:26
+#: ../templates/emails/plain/customer-paymentonsite.php:25
+#, php-format
+msgid "Hi %s,"
+msgstr ""
+
+#: ../templates/emails/customer-paymentonsite.php:44
+#, php-format
+msgid ""
+"Your order is awaiting payment on site, please get it and pay at: "
+"%1$s%2$s"
+msgstr ""
+
+#: ../templates/emails/plain/customer-paymentonsite.php:39
+#, php-format
+msgid ""
+"Your order is awaiting payment on site, please get it and pay at "
+"%s:"
 msgstr ""

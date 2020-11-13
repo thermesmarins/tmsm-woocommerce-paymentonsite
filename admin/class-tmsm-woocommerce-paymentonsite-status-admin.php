@@ -78,73 +78,20 @@ class Tmsm_Woocommerce_Paymentonsite_Status_Admin {
 
 
 	/**
-	 * Rename order statuses in views filters
-	 *
-	 * @param $views array
+	 * @param array $emails
 	 *
 	 * @return array
 	 */
-	function rename_views_filters($views){
-		foreach($views as &$view){
-			//$view = str_replace(_x( 'Processing', 'Order status', 'woocommerce' ), _x( 'Paid', 'Order status', 'tmsm-woocommerce-paymentonsite-status' ), $view);
-			$view = str_replace(_x( 'Completed', 'Order status', 'woocommerce' ), _x( 'Paymentonsite', 'Order status', 'tmsm-woocommerce-paymentonsite-status' ), $view);
-			$view = str_replace('Processed', _x( 'Processed', 'Order status', 'tmsm-woocommerce-paymentonsite-status' ), $view);
-		}
-		return $views;
+	public function register_emails( $emails ) {
+		require_once 'emails/class-tmsm-woocommerce-paymentonsite-status-customer-email.php';
+
+		$emails['Tmsm_Woocommerce_Paymentonsite_Status_Customer_Email'] = new Tmsm_Woocommerce_Paymentonsite_Status_Customer_Email();
+
+		return $emails;
 	}
 
 	/**
-	 * Rename order preview actions
-	 *
-	 * @param array $actions
-	 * @param  WC_Order $order Order object.
-	 *
-	 * @return mixed
-	 */
-	function admin_order_preview_actions($actions, $order){
-
-		$status_actions = array();
-
-		$status_actions = @$actions['status']['actions'];
-
-		$status_actions['complete']['name'] =  _x( 'Paymentonsite', 'Order status', 'tmsm-woocommerce-paymentonsite-status' );
-
-		if ( $order->has_status( array( 'processing', 'completed' , 'complete' ) ) ) {
-			$status_actions['processed'] = array(
-				'url'    => wp_nonce_url( admin_url( 'admin-ajax.php?action=woocommerce_mark_order_status&status=processed&order_id=' . $order->get_id() ), 'woocommerce-mark-order-status' ),
-				'name'   => _x( 'Processed', 'Order status', 'tmsm-woocommerce-paymentonsite-status' ),
-				'action' => 'processed',
-			);
-		}
-
-		if ( $status_actions ) {
-			$actions['status'] = array(
-				'group'   => __( 'Change status: ', 'woocommerce' ),
-				'actions' => $status_actions,
-			);
-		}
-
-		return $actions;
-	}
-
-	/**
-	 * Rename bulk actions
-	 *
-	 * @param array $actions
-	 *
-	 * @return array
-	 */
-	function rename_bulk_actions(array $actions){
-		//$actions['mark_processing'] = __( 'Mark paid', 'tmsm-woocommerce-paymentonsite-status' );
-
-		$actions['mark_completed']  = __( 'Mark paymentonsite', 'tmsm-woocommerce-paymentonsite-status' );
-		$actions['mark_processed'] = __('Mark as processed', 'tmsm-woocommerce-paymentonsite-status');
-
-		return $actions;
-	}
-
-	/**
-	 * Rename order statuses: completed > paymentonsite
+	 * Add order statuses: paymentonsite
 	 *
 	 * @param $statuses
 	 *
@@ -152,132 +99,33 @@ class Tmsm_Woocommerce_Paymentonsite_Status_Admin {
 	 */
 	function rename_order_statuses($statuses){
 
-		$statuses['wc-completed'] = _x( 'Paymentonsite', 'Order status', 'tmsm-woocommerce-paymentonsite-status' );
-		$statuses['wc-processed'] = _x( 'Processed', 'Order status', 'tmsm-woocommerce-paymentonsite-status' );
+		$statuses['wc-paymentonsite'] = _x( 'Payment On Site', 'Order status', 'tmsm-woocommerce-paymentonsite-status' );
 
 		return $statuses;
 	}
 
 	/**
-	 * Order actions for processed
-	 *
-	 * @param array $actions
-	 * @param WC_Order $order
-	 *
-	 * @return mixed
+	 * Load Gateway Class
 	 */
-	function admin_order_actions_processed($actions, $order){
-
-		$actions['complete']['name'] = _x( 'Ship', 'Change order status', 'tmsm-woocommerce-paymentonsite-status' );
-
-		if ( $order->has_status( array( 'processing', 'completed' ) ) ) {
-
-			// Get Order ID (compatibility all WC versions)
-			$order_id = method_exists( $order, 'get_id' ) ? $order->get_id() : $order->id;
-			// Set the action button
-			$actions['processed'] = array(
-				'url'    => wp_nonce_url( admin_url( 'admin-ajax.php?action=woocommerce_mark_order_status&status=processed&order_id='
-				                                     . $order_id ),
-					'woocommerce-mark-order-status' ),
-				'name'   => __( 'Mark as processed', 'tmsm-woocommerce-paymentonsite-status' ),
-				'action' => "view processed", // keep "view" class for a clean button CSS
-			);
-		}
-
-		return $actions;
-	}
-
-	/**
-	 * Bulk action handler for processed
-	 */
-	function admin_action_mark_processed() {
-
-		// if an array with order IDs is not presented, exit the function
-		if( !isset( $_REQUEST['post'] ) && !is_array( $_REQUEST['post'] ) )
-			return;
-
-		foreach( $_REQUEST['post'] as $order_id ) {
-			$order = new WC_Order( $order_id );
-			$order_note = __('Status changed to Processed', 'tmsm-woocommerce-paymentonsite-status');
-			$order->update_status( 'processed', $order_note, true );
-		}
-
-		// of course using add_query_arg() is not required, you can build your URL inline
-		$location = add_query_arg( array(
-			'post_type' => 'shop_order',
-			'marked_processed' => 1, // marked_processed=1 is just the $_GET variable for notices
-			'changed' => count( $_REQUEST['post'] ), // number of changed orders
-			'ids' => join( $_REQUEST['post'], ',' ),
-			'post_status' => 'all'
-		), 'edit.php' );
-
-		wp_redirect( admin_url( $location ) );
-
-
-
-		exit;
+	function load_gateway() {
+		/**
+		 * The class responsible for defining the payment gateway
+		 * of the plugin.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-tmsm-woocommerce-paymentonsite-gateway.php';
 
 	}
 
 	/**
-	 * Action when order goes from processing to processed
+	 * Add Paymentonsite Gateway to the Gateways List
 	 *
-	 * @param $order_id int
-	 * @param $order WC_Order
-	 */
-	function status_processing_to_processed($order_id, $order){
-		$order->update_status( 'completed');
-		$order->update_status( 'processed');
-	}
-
-	/**
-	 * Action when order goes from completed to processed
-	 *
-	 * @param $order_id int
-	 * @param $order WC_Order
-	 */
-	function status_completed_to_processed($order_id, $order){
-
-	}
-
-	/**
-	 * Get list of statuses which are consider 'paid'.
-	 *
-	 * @param $statuses array
-	 * @return array
-	 */
-	function woocommerce_order_is_paid_statuses($statuses){
-		$statuses[] = 'processed';
-		return $statuses;
-	}
-
-	/**
-	 * WooCommerce reports with custom statuts processed as paid status
-	 *
-	 * @param $statuses array
+	 * @param $methods
 	 *
 	 * @return array
 	 */
-	function woocommerce_reports_order_statuses($statuses){
-		if(isset($statuses) && is_array($statuses)){
-			if(in_array('completed', $statuses) || in_array('processing', $statuses)){
-				array_push( $statuses, 'processed');
-			}
-		}
-		return $statuses;
-	}
-
-	/**
-	 * @param $is_download_permitted bool
-	 * @param $order WC_Order
-	 *
-	 * @return bool
-	 */
-	function woocommerce_order_is_download_permitted( $is_download_permitted, $order ) {
-		if ( $order->has_status ( 'processed' ) ) {
-			return true;
-		}
-		return $is_download_permitted;
+	function add_gateway( $methods ) {
+		$methods[] = 'WC_Gateway_Paymentonsite';
+		return $methods;
 	}
 
 }

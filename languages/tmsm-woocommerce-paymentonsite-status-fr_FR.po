@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: StormBringer Wordpress theme\n"
-"POT-Creation-Date: 2018-04-09 11:44+0200\n"
-"PO-Revision-Date: 2018-04-09 11:44+0200\n"
-"Last-Translator: \n"
+"Project-Id-Version: TMSM WooCommerce Payment On Site Status\n"
+"POT-Creation-Date: 2020-11-13 11:08+0100\n"
+"PO-Revision-Date: 2020-11-13 11:12+0100\n"
+"Last-Translator: Nicolas Mollet <nico.mollet@gmail.com>\n"
 "Language-Team: Nicolas Mollet <nico.mollet@gmail.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2.4\n"
 "X-Poedit-KeywordsList: _e;__;_n:1,2;_x:1,2c;esc_attr__;esc_attr_e;"
 "esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-Basepath: .\n"
@@ -17,64 +17,148 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:89
+#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:102
 msgctxt "Order status"
-msgid "Processing"
-msgstr "En cours"
+msgid "Payment On Site"
+msgstr "Paiement sur place"
 
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:89
-msgctxt "Order status"
-msgid "Paid"
-msgstr "Payée"
+#: ../admin/emails/class-tmsm-woocommerce-paymentonsite-status-customer-email.php:33
+msgid "Order with payment on site"
+msgstr "Commande avec paiement sur place"
 
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:91
-msgctxt "Order status"
-msgid "Completed"
-msgstr "Terminé"
+#: ../admin/emails/class-tmsm-woocommerce-paymentonsite-status-customer-email.php:35
+msgid ""
+"This is an order notification sent to customers containing order details "
+"after an order has payment on site."
+msgstr ""
+"Ceci est une notification de commande envoyée aux clients après le choix du "
+"paiement sur place."
 
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:91
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:115
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:163
-msgctxt "Order status"
-msgid "Paymentonsite"
-msgstr "Expédiée"
+#: ../admin/emails/class-tmsm-woocommerce-paymentonsite-status-customer-email.php:61
+msgid "Your {site_title} order has been received!"
+msgstr "Votre commande sur {site_title} a été reçue"
 
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:92
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:120
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:164
-msgctxt "Order status"
-msgid "Processed"
-msgstr "Terminée"
+#: ../admin/emails/class-tmsm-woocommerce-paymentonsite-status-customer-email.php:71
+msgid "Thank you for your order"
+msgstr "Merci pour votre commande"
 
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:127
-msgid "Change status: "
-msgstr "Changer de statut&nbsp;:"
+#: ../admin/emails/class-tmsm-woocommerce-paymentonsite-status-customer-email.php:167
+msgid "We look forward to fulfilling your order soon."
+msgstr "Merci."
 
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:143
-msgid "Mark paid"
-msgstr "Marquer payée"
-
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:147
-msgid "Mark paymentonsite"
-msgstr "Marquer expédiée"
-
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:148
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:192
-msgid "Mark as processed"
-msgstr "Terminer"
-
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:181
-msgctxt "Change order status"
-msgid "Ship"
-msgstr "Expédier"
-
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:234
-msgid "Status changed to Processed"
-msgstr "Statut changé vers Terminée"
-
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:33
 #: ../includes/class-tmsm-woocommerce-paymentonsite-status-poststatus.php:21
-msgid "Processed"
-msgstr "Terminée"
+msgid "Payment On Site"
+msgstr "Paiement sur place"
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:34
+msgid "Have your customers pay on site."
+msgstr "Demandez à vos clients de payer sur place."
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:43
+msgid "Enable payment on site"
+msgstr "Activer le paiement sur place"
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:44
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:45
+msgid "Payment on site"
+msgstr "Paiement sur place"
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:46
+msgid ""
+"Instructions that will be added to the thank you page and confirmation "
+"email. Use the placeholder {shop_address} for the shop address."
+msgstr ""
+"Instructions qui seront ajoutées à la page de remerciements et l’e-mail de "
+"confirmation de commande. Espaces réservés disponibles : {shop_address}"
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:47
+msgid "Payment on site at {shop_address}"
+msgstr "Payer sur place à l’adresse {shop_adresse}"
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:49
+msgid "Accept Payment On Site if the order is virtual"
+msgstr "Accepter le paiement sur place si la commande est virtuelle"
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:111
+#, php-format
+msgid "Any &quot;%1$s&quot; method"
+msgstr "N’importe quelle méthode « %1$s »"
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:126
+#, php-format
+msgid "%1$s (#%2$s)"
+msgstr "%1$s (#%2$s)"
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:129
+#, php-format
+msgid "%1$s &ndash; %2$s"
+msgstr "%1$s &ndash; %2$s"
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:129
+msgid "Other locations"
+msgstr "Autres emplacements"
+
+#: ../templates/emails/customer-paymentonsite.php:26
+#: ../templates/emails/plain/customer-paymentonsite.php:25
+#, php-format
+msgid "Hi %s,"
+msgstr "Bonjour %s,"
+
+#: ../templates/emails/customer-paymentonsite.php:44
+#, php-format
+msgid ""
+"Your order is awaiting payment on site, please get it and pay at: %1$s%2$s"
+msgstr ""
+"Votre commande est en attente du paiement sur place, veuillez la récupérer "
+"et payer à l’adresse : %1$s%2$s"
+
+#: ../templates/emails/plain/customer-paymentonsite.php:39
+#, php-format
+msgid "Your order is awaiting payment on site, please get it and pay at %s:"
+msgstr ""
+"Votre commande est en attente du paiement sur place, veuillez la récupérer "
+"et payer à l’adresse : %s"
+
+#~ msgid ""
+#~ "Payment method description that the customer will see on your checkout."
+#~ msgstr ""
+#~ "Moyen de paiement que le client vera lors du passage de la commande."
+
+#~ msgctxt "Order status"
+#~ msgid "Processing"
+#~ msgstr "En cours"
+
+#~ msgctxt "Order status"
+#~ msgid "Paid"
+#~ msgstr "Payée"
+
+#~ msgctxt "Order status"
+#~ msgid "Completed"
+#~ msgstr "Terminé"
+
+#~ msgctxt "Order status"
+#~ msgid "Processed"
+#~ msgstr "Terminée"
+
+#~ msgid "Change status: "
+#~ msgstr "Changer de statut&nbsp;:"
+
+#~ msgid "Mark paid"
+#~ msgstr "Marquer payée"
+
+#~ msgid "Mark as processed"
+#~ msgstr "Terminer"
+
+#~ msgctxt "Change order status"
+#~ msgid "Ship"
+#~ msgstr "Expédier"
+
+#~ msgid "Status changed to Processed"
+#~ msgstr "Statut changé vers Terminée"
+
+#~ msgid "Processed"
+#~ msgstr "Terminée"
 
 #~ msgid "Change your mailjet settings"
 #~ msgstr "Modifier vos réglages Mailjet"

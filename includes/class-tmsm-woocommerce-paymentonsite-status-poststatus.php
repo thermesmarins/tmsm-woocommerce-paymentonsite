@@ -18,7 +18,7 @@ class Tmsm_Woocommerce_Paymentonsite_Status_Poststatus {
 	 */
 	public function register_post_status_paymentonsite() {
 		register_post_status( 'wc-paymentonsite', array(
-			'label'                     => __('Payment On Site', 'tmsm-woocommerce-paymentonsite-status'),
+			'label'                     => __('Payment On Site', 'Order status', 'tmsm-woocommerce-paymentonsite-status'),
 			'public'                    => true,
 			'show_in_admin_status_list' => true,
 			'show_in_admin_all_list'    => true,

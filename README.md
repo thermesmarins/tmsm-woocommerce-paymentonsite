@@ -1,2 +1,4 @@
 # tmsm-woocommerce-paymentonsite-status
-Payment On Site status for WooCommerce
+"Payment On Site" status & Gateway for WooCommerce
+
+"Payment On Site" orders don't count as paid orders.
