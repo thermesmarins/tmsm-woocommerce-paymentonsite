@@ -36,7 +36,7 @@ class WC_Gateway_Paymentonsite extends WC_Gateway_COD {
 
 		$this->override_form_fields();
 
-		add_filter( 'woocommerce_payment_complete_order_status', array( $this, 'change_payment_complete_order_status' ), 10, 3 );
+		add_filter( 'woocommerce_payment_complete_order_status', array( $this, 'change_payment_complete_order_status' ), 30, 3 );
 
 		// Customer Emails.
 		add_action( 'woocommerce_email_before_order_table', array( $this, 'email_instructions' ), -30, 3 );
@@ -48,12 +48,12 @@ class WC_Gateway_Paymentonsite extends WC_Gateway_COD {
 	protected function setup_properties() {
 		$this->id                 = 'paymentonsite';
 		$this->enabled            = false;
-		$this->icon               = apply_filters( 'woocommerce_paymentonsite_icon', '' );
-		$this->method_title       = __('Payment On Site', 'Payment gateway', 'tmsm-woocommerce-paymentonsite-status');
+		$this->icon               = apply_filters( 'woocommerce_paymentonsite_icon', WC_HTTPS::force_https_url( TMSM_WOOCOMMERCE_PAYMENTONSITE_BASE_URL.'/public/img/paymentonsite-icon.png'  ) );
+		$this->method_title       = _x('Payment On Site', 'Payment gateway', 'tmsm-woocommerce-paymentonsite-status');
 		$this->method_description = __( 'Have your customers pay on site.', 'tmsm-woocommerce-paymentonsite-status' );
 		$this->has_fields         = false;
-	}
 
+	}
 
 	/**
 	 * Override Gateway Settings Form Fields.
@@ -83,6 +83,32 @@ class WC_Gateway_Paymentonsite extends WC_Gateway_COD {
 			$status = 'paymentonsite';
 		}
 		return $status;
+	}
+
+	/**
+	 * Process the payment and return the result.
+	 *
+	 * @param int $order_id Order ID.
+	 * @return array
+	 */
+	public function process_payment( $order_id ) {
+		$order = wc_get_order( $order_id );
+
+		if ( $order->get_total() > 0 ) {
+			// Mark as processing or on-hold (payment won't be taken until delivery).
+			$order->update_status( apply_filters( 'woocommerce_paymentonsite_process_payment_order_status', $order->has_downloadable_item() ? 'paymentonsite' : 'paymentonsite', $order ), __( 'Payment to be made on site', 'tmsm-woocommerce-paymentonsite-status' ) );
+		} else {
+			$order->payment_complete();
+		}
+
+		// Remove cart.
+		WC()->cart->empty_cart();
+
+		// Return thankyou redirect.
+		return array(
+			'result'   => 'success',
+			'redirect' => $this->get_return_url( $order ),
+		);
 	}
 
 	/**

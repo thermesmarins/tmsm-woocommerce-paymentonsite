@@ -36,7 +36,7 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Status_Admin_Email', false 
 				'tmsm-woocommerce-paymentonsite-status' );
 			$this->template_html  = 'emails/admin-paymentonsite.php';
 			$this->template_plain = 'emails/plain/admin-paymentonsite.php';
-			$this->template_base  = TMSM_WOOCOMMERCE_PAYMENTONSITE_STATUS . 'templates/';
+			$this->template_base  = TMSM_WOOCOMMERCE_PAYMENTONSITE_BASE_PATH . 'templates/';
 			$this->placeholders   = array(
 				'{order_date}'   => '',
 				'{order_number}' => '',
@@ -62,7 +62,7 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Status_Admin_Email', false 
 		 * @return string
 		 */
 		public function get_default_subject() {
-			return __( '[{site_title}]: New order #{order_number}', 'woocommerce' );
+			return __( '[{site_title}]: New order #{order_number}', 'tmsm-woocommerce-paymentonsite-status' );
 		}
 
 		/**
@@ -72,7 +72,7 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Status_Admin_Email', false 
 		 * @return string
 		 */
 		public function get_default_heading() {
-			return __( 'New Order: #{order_number}', 'woocommerce' );
+			return __( 'New Order: #{order_number}', 'tmsm-woocommerce-paymentonsite-status' );
 		}
 
 
@@ -169,7 +169,7 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Status_Admin_Email', false 
 		 * @return string
 		 */
 		public function get_default_additional_content() {
-			return __( 'Congratulations on the sale.', 'woocommerce' );
+			return __( 'Congratulations on the sale.', 'tmsm-woocommerce-paymentonsite-status' );
 		}
 	}
 

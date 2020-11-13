@@ -36,7 +36,7 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Status_Customer_Email', fal
 				'tmsm-woocommerce-paymentonsite-status' );
 			$this->template_html  = 'emails/customer-paymentonsite.php';
 			$this->template_plain = 'emails/plain/customer-paymentonsite.php';
-			$this->template_base  = TMSM_WOOCOMMERCE_PAYMENTONSITE_STATUS . 'templates/';
+			$this->template_base  = TMSM_WOOCOMMERCE_PAYMENTONSITE_BASE_PATH . 'templates/';
 			$this->placeholders   = array(
 				'{order_date}'   => '',
 				'{order_number}' => '',

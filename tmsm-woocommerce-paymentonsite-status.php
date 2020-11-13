@@ -39,9 +39,10 @@ if ( ! defined( 'WPINC' ) ) {
  * Rename this for your plugin and update it as you release new versions.
  */
 define( 'TMSM_WOOCOMMERCE_PAYMENTONSITE_STATUS_VERSION', '1.0.0' );
-if(! defined('TMSM_WOOCOMMERCE_PAYMENTONSITE_STATUS')){
-	define( 'TMSM_WOOCOMMERCE_PAYMENTONSITE_STATUS', plugin_dir_path( __FILE__ ) );
-}
+
+defined( 'TMSM_WOOCOMMERCE_PAYMENTONSITE_BASE_PATH' ) || define( 'TMSM_WOOCOMMERCE_PAYMENTONSITE_BASE_PATH', plugin_dir_path( __FILE__ ) );
+defined( 'TMSM_WOOCOMMERCE_PAYMENTONSITE_BASE_URL' ) || define( 'TMSM_WOOCOMMERCE_PAYMENTONSITE_BASE_URL', plugin_dir_url( __FILE__ ) );
+
 
 /**
  * The code that runs during plugin activation.
