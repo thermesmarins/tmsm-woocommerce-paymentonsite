@@ -130,4 +130,48 @@ class Tmsm_Woocommerce_Paymentonsite_Status_Admin {
 		return $methods;
 	}
 
+	/**
+	 * WooCommerce: Add Web Hook Order Paid
+	 *
+	 * @param array $topic_hooks Existing topic hooks.
+	 *
+	 * @return array
+	 */
+	function webhook_topic_hooks_order_paymentonsite( $topic_hooks ) {
+		$new_hooks = array(
+			'order.paymentonsite' => array(
+				'woocommerce_process_paymentonsite',
+			),
+		);
+		return array_merge( $topic_hooks, $new_hooks );
+	}
+
+	/**
+	 * WooCommerce: Add Web Hook Topic Paid
+	 *
+	 * @param array $topic_events Existing topic hooks.
+	 *
+	 * @return array
+	 */
+	function valid_webhook_events_paymentonsite( $topic_events ) {
+		$new_events = array(
+			'paymentonsite',
+		);
+		return array_merge( $topic_events, $new_events );
+	}
+
+	/**
+	 * WooCommerce: Add Web Hook Order Paid i18n
+	 *
+	 * @param array $topics Array of topics with the i18n proper name.
+	 *
+	 * @return array
+	 */
+	function webhook_topics_order_paymentonsite( $topics ) {
+		$new_topics = array(
+			'order.paymentonsite' => __( 'Order Payment On Site', 'tmsm-woocommerce-paymentonsite-status' ),
+		);
+		return array_merge( $topics, $new_topics );
+	}
+
 }

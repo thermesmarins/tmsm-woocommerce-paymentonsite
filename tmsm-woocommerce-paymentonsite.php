@@ -69,7 +69,7 @@ register_deactivation_hook( __FILE__, 'deactivate_tmsm_woocommerce_paymentonsite
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-tmsm-woocommerce-paymentonsite-status.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-tmsm-woocommerce-paymentonsite.php';
 
 /**
  * Begins execution of the plugin.

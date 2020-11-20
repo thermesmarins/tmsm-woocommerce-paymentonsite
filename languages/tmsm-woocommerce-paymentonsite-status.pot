@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TMSM WooCommerce Payment On Site Status\n"
-"POT-Creation-Date: 2020-11-13 13:38+0100\n"
+"POT-Creation-Date: 2020-11-13 16:11+0100\n"
 "PO-Revision-Date: 2014-10-24 21:08+0100\n"
 "Last-Translator: Nicolas Mollet <nico.mollet@gmail.com>\n"
 "Language-Team: Nicolas Mollet <nico.mollet@gmail.com>\n"
@@ -18,10 +18,14 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
-#: ../admin/class-tmsm-woocommerce-paymentonsite-status-admin.php:104
+#: ../admin/class-tmsm-woocommerce-paymentonsite-admin.php:104
 #: ../includes/class-tmsm-woocommerce-paymentonsite-status-poststatus.php:21
 msgctxt "Order status"
 msgid "Payment On Site"
+msgstr ""
+
+#: ../admin/class-tmsm-woocommerce-paymentonsite-admin.php:172
+msgid "Order Payment On Site"
 msgstr ""
 
 #: ../admin/emails/class-tmsm-woocommerce-paymentonsite-status-admin-email.php:33
@@ -74,46 +78,50 @@ msgstr ""
 msgid "Have your customers pay on site."
 msgstr ""
 
-#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:63
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:62
 msgid "Enable payment on site"
 msgstr ""
 
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:63
 #: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:64
-#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:65
 msgid "Payment on site"
 msgstr ""
 
-#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:66
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:65
 msgid ""
 "Instructions that will be added to the thank you page and "
 "confirmation email. Use the placeholder {shop_address} for the "
 "shop address."
 msgstr ""
 
-#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:67
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:66
 msgid "Payment on site at {shop_address}"
 msgstr ""
 
-#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:69
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:68
 msgid "Accept Payment On Site if the order is virtual"
 msgstr ""
 
-#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:148
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:100
+msgid "Payment to be made on site"
+msgstr ""
+
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:174
 #, php-format
 msgid "Any &quot;%1$s&quot; method"
 msgstr ""
 
-#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:163
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:189
 #, php-format
 msgid "%1$s (#%2$s)"
 msgstr ""
 
-#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:166
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:192
 #, php-format
 msgid "%1$s &ndash; %2$s"
 msgstr ""
 
-#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:166
+#: ../includes/class-tmsm-woocommerce-paymentonsite-gateway.php:192
 msgid "Other locations"
 msgstr ""
 

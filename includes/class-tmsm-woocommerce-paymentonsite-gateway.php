@@ -81,6 +81,7 @@ class WC_Gateway_Paymentonsite extends WC_Gateway_COD {
 	public function change_payment_complete_order_status( $status, $order_id = 0, $order = false ) {
 		if ( $order && 'paymentonsite' === $order->get_payment_method() ) {
 			$status = 'paymentonsite';
+			do_action( 'woocommerce_process_paymentonsite', $order_id );
 		}
 		return $status;
 	}

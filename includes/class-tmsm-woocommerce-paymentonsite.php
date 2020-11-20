@@ -123,7 +123,7 @@ class Tmsm_Woocommerce_Paymentonsite_Status {
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-tmsm-woocommerce-paymentonsite-status-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-tmsm-woocommerce-paymentonsite-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
@@ -172,6 +172,11 @@ class Tmsm_Woocommerce_Paymentonsite_Status {
 
 		$this->loader->add_filter( 'plugins_loaded', $plugin_admin, 'load_gateway', 999 );
 		$this->loader->add_filter( 'woocommerce_payment_gateways', $plugin_admin, 'add_gateway', 999 );
+
+		// WooCommerce Web Hook Order "Payment On Site"
+		$this->loader->add_filter( 'woocommerce_webhook_topic_hooks', $plugin_admin, 'webhook_topic_hooks_order_paymentonsite', 50, 1 );
+		$this->loader->add_filter( 'woocommerce_valid_webhook_events', $plugin_admin, 'valid_webhook_events_paymentonsite', 50, 1 );
+		$this->loader->add_filter( 'woocommerce_webhook_topics', $plugin_admin, 'webhook_topics_order_paymentonsite', 50, 1 );
 
 	}
 
