@@ -35,6 +35,9 @@ class WC_Gateway_Paymentonsite extends WC_Gateway_COD {
 		parent::__construct();
 
 		$this->override_form_fields();
+		$this->title              = $this->get_method_title();
+		$this->description        = $this->get_description();
+		//$this->instructions       = $this->get_in;
 
 		add_filter( 'woocommerce_payment_complete_order_status', array( $this, 'change_payment_complete_order_status' ), 30, 3 );
 
