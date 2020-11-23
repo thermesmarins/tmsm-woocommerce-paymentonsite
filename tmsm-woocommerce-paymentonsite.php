@@ -19,13 +19,13 @@
  * Version:           1.0.0
  * Author:            Nicolas Mollet
  * Author URI:        https://github.com/nicomollet
- * License:           GPL-2.0+
+ * License:           GPL-3.0+
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       tmsm-woocommerce-paymentonsite-status
  * Domain Path:       /languages
  * Github Plugin URI: https://github.com/thermesmarins/tmsm-woocommerce-paymentonsite-status
  * Github Branch:     master
- * Requires PHP:      5.6
+ * Requires PHP:      7.0
  */
 
 // If this file is called directly, abort.
