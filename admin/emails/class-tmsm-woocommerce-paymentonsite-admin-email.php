@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Tmsm_Woocommerce_Paymentonsite_Status_Admin_Email file.
+ * Class Tmsm_Woocommerce_Paymentonsite_Admin_Email file.
  *
  * @package WooCommerce\Emails
  */
@@ -9,19 +9,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Status_Admin_Email', false ) ) :
+if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Admin_Email', false ) ) :
 
 	/**
 	 * Admin On-hold Order Email.
 	 *
 	 * An email sent to the admin when a new order is on-hold for.
 	 *
-	 * @class       Tmsm_Woocommerce_Paymentonsite_Status_Admin_Email
+	 * @class       Tmsm_Woocommerce_Paymentonsite_Admin_Email
 	 * @version     1.0.0
 	 * @package     WooCommerce/Classes/Emails
 	 * @extends     WC_Email
 	 */
-	class Tmsm_Woocommerce_Paymentonsite_Status_Admin_Email extends WC_Email {
+	class Tmsm_Woocommerce_Paymentonsite_Admin_Email extends WC_Email {
 
 		/**
 		 * Constructor.
@@ -42,10 +42,8 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Status_Admin_Email', false 
 				'{order_number}' => '',
 			);
 
-			// Triggers for this email.
-			add_action( 'woocommerce_order_status_pending_to_paymentonsite_notification', array( $this, 'trigger' ), 10, 2 );
-			add_action( 'woocommerce_order_status_failed_to_paymentonsite_notification', array( $this, 'trigger' ), 10, 2 );
-			add_action( 'woocommerce_order_status_cancelled_to_paymentonsite_notification', array( $this, 'trigger' ), 10, 2 );
+			// Triggers for this email
+			add_action( 'woocommerce_order_status_paymentonsite_notification', array( $this, 'trigger' ), 10, 2 );
 
 			// Call parent constructor.
 			parent::__construct();
@@ -75,7 +73,6 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Status_Admin_Email', false 
 			return __( 'New Order: #{order_number}', 'tmsm-woocommerce-paymentonsite-status' );
 		}
 
-
 		/**
 		 * Trigger the sending of this email.
 		 *
@@ -91,7 +88,6 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Status_Admin_Email', false 
 
 			if ( is_a( $order, 'WC_Order' ) ) {
 				$this->object                         = $order;
-				$this->recipient                      = $this->object->get_billing_email();
 				$this->placeholders['{order_date}']   = wc_format_datetime( $this->object->get_date_created() );
 				$this->placeholders['{order_number}'] = $this->object->get_order_number();
 			}
@@ -119,7 +115,9 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Status_Admin_Email', false 
 					'sent_to_admin'      => false,
 					'plain_text'         => false,
 					'email'              => $this,
-				)
+				),
+				'',
+				$this->template_base
 			);
 		}
 
@@ -139,7 +137,9 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Status_Admin_Email', false 
 					'sent_to_admin'      => false,
 					'plain_text'         => true,
 					'email'              => $this,
-				)
+				),
+				'',
+				$this->template_base
 			);
 		}
 
@@ -170,6 +170,25 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Status_Admin_Email', false 
 		 */
 		public function get_default_additional_content() {
 			return __( 'Congratulations on the sale.', 'tmsm-woocommerce-paymentonsite-status' );
+		}
+
+		/**
+		 * Initialise settings form fields.
+		 */
+		public function init_form_fields() {
+
+			parent::init_form_fields();
+
+			$this->form_fields['recipient'] = array(
+				'title'       => __( 'Recipient(s)', 'tmsm-woocommerce-paymentonsite-status' ),
+				'type'        => 'text',
+				/* translators: %s: WP admin email */
+				'description' => sprintf( __( 'Enter recipients (comma separated) for this email. Defaults to %s.', 'tmsm-woocommerce-paymentonsite-status' ),
+					'<code>' . esc_attr( get_option( 'admin_email' ) ) . '</code>' ),
+				'placeholder' => '',
+				'default'     => '',
+				'desc_tip'    => true,
+			);
 		}
 	}
 

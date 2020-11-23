@@ -38,7 +38,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'TMSM_WOOCOMMERCE_PAYMENTONSITE_STATUS_VERSION', '1.0.0' );
+define( 'TMSM_WOOCOMMERCE_PAYMENTONSITE_VERSION', '1.0.0' );
 
 defined( 'TMSM_WOOCOMMERCE_PAYMENTONSITE_BASE_PATH' ) || define( 'TMSM_WOOCOMMERCE_PAYMENTONSITE_BASE_PATH', plugin_dir_path( __FILE__ ) );
 defined( 'TMSM_WOOCOMMERCE_PAYMENTONSITE_BASE_URL' ) || define( 'TMSM_WOOCOMMERCE_PAYMENTONSITE_BASE_URL', plugin_dir_url( __FILE__ ) );

@@ -67,8 +67,8 @@ class Tmsm_Woocommerce_Paymentonsite_Status {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'TMSM_WOOCOMMERCE_PAYMENTONSITE_STATUS_VERSION' ) ) {
-			$this->version = TMSM_WOOCOMMERCE_PAYMENTONSITE_STATUS_VERSION;
+		if ( defined( 'TMSM_WOOCOMMERCE_PAYMENTONSITE_VERSION' ) ) {
+			$this->version = TMSM_WOOCOMMERCE_PAYMENTONSITE_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
@@ -166,7 +166,8 @@ class Tmsm_Woocommerce_Paymentonsite_Status {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		//$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
-		$this->loader->add_filter( 'woocommerce_email_classes', $plugin_admin, 'register_emails', 999, 1 );
+		$this->loader->add_filter( 'woocommerce_email_classes', $plugin_admin, 'register_email_classes', 999, 1 );
+		$this->loader->add_filter( 'woocommerce_email_actions', $plugin_admin, 'register_email_actions', 999, 1 );
 
 		$this->loader->add_filter( 'wc_order_statuses', $plugin_admin, 'rename_order_statuses', 999, 1 );
 

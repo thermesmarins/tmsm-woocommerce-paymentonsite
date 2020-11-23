@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Tmsm_Woocommerce_Paymentonsite_Status_Customer_Email file.
+ * Class Tmsm_Woocommerce_Paymentonsite_Customer_Email file.
  *
  * @package WooCommerce\Emails
  */
@@ -9,19 +9,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Status_Customer_Email', false ) ) :
+if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Customer_Email', false ) ) :
 
 	/**
 	 * Customer On-hold Order Email.
 	 *
 	 * An email sent to the customer when a new order is on-hold for.
 	 *
-	 * @class       Tmsm_Woocommerce_Paymentonsite_Status_Customer_Email
+	 * @class       Tmsm_Woocommerce_Paymentonsite_Customer_Email
 	 * @version     1.0.0
 	 * @package     WooCommerce/Classes/Emails
 	 * @extends     WC_Email
 	 */
-	class Tmsm_Woocommerce_Paymentonsite_Status_Customer_Email extends WC_Email {
+	class Tmsm_Woocommerce_Paymentonsite_Customer_Email extends WC_Email {
 
 		/**
 		 * Constructor.
@@ -42,10 +42,8 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Status_Customer_Email', fal
 				'{order_number}' => '',
 			);
 
-			// Triggers for this email.
-			add_action( 'woocommerce_order_status_pending_to_paymentonsite_notification', array( $this, 'trigger' ), 10, 2 );
-			add_action( 'woocommerce_order_status_failed_to_paymentonsite_notification', array( $this, 'trigger' ), 10, 2 );
-			add_action( 'woocommerce_order_status_cancelled_to_paymentonsite_notification', array( $this, 'trigger' ), 10, 2 );
+			// Triggers for this email
+			add_action( 'woocommerce_order_status_paymentonsite_notification', array( $this, 'trigger' ), 10, 2 );
 
 			// Call parent constructor.
 			parent::__construct();
@@ -78,6 +76,9 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Status_Customer_Email', fal
 		 * @param WC_Order|false $order    Order object.
 		 */
 		public function trigger( $order_id, $order = false ) {
+
+			error_log('trigger paymentonsite customer email for order '.$order_id);
+
 			$this->setup_locale();
 
 			if ( $order_id && ! is_a( $order, 'WC_Order' ) ) {
@@ -114,7 +115,9 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Status_Customer_Email', fal
 					'sent_to_admin'      => false,
 					'plain_text'         => false,
 					'email'              => $this,
-				)
+				),
+				'',
+				$this->template_base
 			);
 		}
 
@@ -134,7 +137,9 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Status_Customer_Email', fal
 					'sent_to_admin'      => false,
 					'plain_text'         => true,
 					'email'              => $this,
-				)
+				),
+				'',
+				$this->template_base
 			);
 		}
 

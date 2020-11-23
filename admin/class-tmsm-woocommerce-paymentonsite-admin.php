@@ -76,18 +76,32 @@ class Tmsm_Woocommerce_Paymentonsite_Status_Admin {
 
 	}
 
-
 	/**
+	 * Register Email Classes
+	 *
 	 * @param array $emails
 	 *
 	 * @return array
 	 */
-	public function register_emails( $emails ) {
-		require_once 'emails/class-tmsm-woocommerce-paymentonsite-status-customer-email.php';
-		require_once 'emails/class-tmsm-woocommerce-paymentonsite-status-admin-email.php';
+	public function register_email_classes( $emails ) {
+		require_once 'emails/class-tmsm-woocommerce-paymentonsite-customer-email.php';
+		require_once 'emails/class-tmsm-woocommerce-paymentonsite-admin-email.php';
 
-		$emails['Tmsm_Woocommerce_Paymentonsite_Status_Customer_Email'] = new Tmsm_Woocommerce_Paymentonsite_Status_Customer_Email();
-		$emails['Tmsm_Woocommerce_Paymentonsite_Status_Admin_Email'] = new Tmsm_Woocommerce_Paymentonsite_Status_Admin_Email();
+		$emails['Tmsm_Woocommerce_Paymentonsite_Customer_Email'] = new Tmsm_Woocommerce_Paymentonsite_Customer_Email();
+		$emails['Tmsm_Woocommerce_Paymentonsite_Admin_Email'] = new Tmsm_Woocommerce_Paymentonsite_Admin_Email();
+
+		return $emails;
+	}
+
+	/**
+	 * Register Email Actions
+	 *
+	 * @param array $emails
+	 *
+	 * @return array
+	 */
+	public function register_email_actions( $emails ) {
+		$emails[] = 'woocommerce_order_status_paymentonsite';
 
 		return $emails;
 	}
