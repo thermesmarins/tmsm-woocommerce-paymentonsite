@@ -1,3 +1,5 @@
+* Gateway refactoring
+
 ### 1.0.2: November 24th, 2020
 * Does not need Jetpack constants class
 * Rename old name references
