@@ -1,3 +1,4 @@
+### 1.0.1: November 24th, 2020
 * Force settings default values instead of COD default
 * Fix recipient for admin email
 * Fix email registration
