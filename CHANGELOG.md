@@ -1,3 +1,4 @@
+### 1.0.3: November 24th, 2020
 * Gateway refactoring
 
 ### 1.0.2: November 24th, 2020
