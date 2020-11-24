@@ -5,8 +5,6 @@
  * @package WooCommerce\Gateways
  */
 
-use Automattic\Jetpack\Constants;
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -82,6 +80,7 @@ class WC_Gateway_Paymentonsite extends WC_Gateway_COD {
 	 * @return string
 	 */
 	public function change_payment_complete_order_status( $status, $order_id = 0, $order = false ) {
+		error_log('paymentonsite change_payment_complete_order_status');
 		if ( $order && 'paymentonsite' === $order->get_payment_method() ) {
 			$status = 'paymentonsite';
 			do_action( 'woocommerce_process_paymentonsite', $order_id );
@@ -96,6 +95,7 @@ class WC_Gateway_Paymentonsite extends WC_Gateway_COD {
 	 * @return array
 	 */
 	public function process_payment( $order_id ) {
+		error_log('paymentonsite process_payment');
 		$order = wc_get_order( $order_id );
 
 		if ( $order->get_total() > 0 ) {
@@ -115,37 +115,7 @@ class WC_Gateway_Paymentonsite extends WC_Gateway_COD {
 		);
 	}
 
-	/**
-	 * Checks to see whether or not the admin settings are being accessed by the current request.
-	 *
-	 * @return bool
-	 */
-	private function is_accessing_settings() {
-		if ( is_admin() ) {
-			// phpcs:disable WordPress.Security.NonceVerification
-			if ( ! isset( $_REQUEST['page'] ) || 'wc-settings' !== $_REQUEST['page'] ) {
-				return false;
-			}
-			if ( ! isset( $_REQUEST['tab'] ) || 'checkout' !== $_REQUEST['tab'] ) {
-				return false;
-			}
-			if ( ! isset( $_REQUEST['section'] ) || 'paymentonsite' !== $_REQUEST['section'] ) {
-				return false;
-			}
-			// phpcs:enable WordPress.Security.NonceVerification
 
-			return true;
-		}
-
-		if ( Constants::is_true( 'REST_REQUEST' ) ) {
-			global $wp;
-			if ( isset( $wp->query_vars['rest_route'] ) && false !== strpos( $wp->query_vars['rest_route'], '/payment_gateways' ) ) {
-				return true;
-			}
-		}
-
-		return false;
-	}
 
 	/**
 	 * Loads all of the shipping method options for the enable_for_methods field.
