@@ -40,6 +40,7 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Customer_Email', false ) ) 
 			$this->placeholders   = array(
 				'{order_date}'   => '',
 				'{order_number}' => '',
+				'{shop_address}' => '',
 			);
 
 			// Triggers for this email
@@ -77,8 +78,6 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Customer_Email', false ) ) 
 		 */
 		public function trigger( $order_id, $order = false ) {
 
-			error_log('trigger paymentonsite customer email for order '.$order_id);
-
 			$this->setup_locale();
 
 			if ( $order_id && ! is_a( $order, 'WC_Order' ) ) {
@@ -90,6 +89,7 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Customer_Email', false ) ) 
 				$this->recipient                      = $this->object->get_billing_email();
 				$this->placeholders['{order_date}']   = wc_format_datetime( $this->object->get_date_created() );
 				$this->placeholders['{order_number}'] = $this->object->get_order_number();
+				$this->placeholders['{shop_address}'] = $this->get_formatted_base_address();
 			}
 
 			if ( $this->is_enabled() && $this->get_recipient() ) {

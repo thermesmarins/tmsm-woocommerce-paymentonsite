@@ -90,6 +90,7 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Admin_Email', false ) ) :
 				$this->object                         = $order;
 				$this->placeholders['{order_date}']   = wc_format_datetime( $this->object->get_date_created() );
 				$this->placeholders['{order_number}'] = $this->object->get_order_number();
+				$this->placeholders['{shop_address}'] = $this->get_formatted_base_address();
 			}
 
 			if ( $this->is_enabled() && $this->get_recipient() ) {
@@ -112,7 +113,7 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Admin_Email', false ) ) :
 					'email_heading'      => $this->get_heading(),
 					'additional_content' => $this->get_additional_content(),
 					'shop_address'       => self::get_formatted_base_address(),
-					'sent_to_admin'      => false,
+					'sent_to_admin'      => true,
 					'plain_text'         => false,
 					'email'              => $this,
 				),
@@ -134,7 +135,7 @@ if ( ! class_exists( 'Tmsm_Woocommerce_Paymentonsite_Admin_Email', false ) ) :
 					'email_heading'      => $this->get_heading(),
 					'additional_content' => $this->get_additional_content(),
 					'shop_address'       => self::get_formatted_base_address(),
-					'sent_to_admin'      => false,
+					'sent_to_admin'      => true,
 					'plain_text'         => true,
 					'email'              => $this,
 				),
