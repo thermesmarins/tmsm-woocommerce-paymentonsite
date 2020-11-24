@@ -42,7 +42,7 @@ class WC_Gateway_Paymentonsite extends WC_Gateway_COD {
 		add_filter( 'woocommerce_payment_complete_order_status', array( $this, 'change_payment_complete_order_status' ), 30, 3 );
 
 		// Customer Emails.
-		add_action( 'woocommerce_email_before_order_table', array( $this, 'email_instructions' ), -30, 3 );
+		//add_action( 'woocommerce_email_before_order_table', array( $this, 'email_instructions' ), -30, 3 );
 	}
 
 	/**
