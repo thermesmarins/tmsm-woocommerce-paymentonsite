@@ -14,7 +14,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       TMSM WooCommerce Payment On Site Status
- * Plugin URI:        https://github.com/thermesmarins/tmsm-woocommerce-paymentonsite-status
+ * Plugin URI:        https://github.com/thermesmarins/tmsm-woocommerce-paymentonsite
  * Description:       Adds a "Payment On Site" status to WooCommerce order statuses
  * Version:           1.0.1
  * Author:            Nicolas Mollet
@@ -23,7 +23,7 @@
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       tmsm-woocommerce-paymentonsite-status
  * Domain Path:       /languages
- * Github Plugin URI: https://github.com/thermesmarins/tmsm-woocommerce-paymentonsite-status
+ * Github Plugin URI: https://github.com/thermesmarins/tmsm-woocommerce-paymentonsite
  * Github Branch:     master
  * Requires PHP:      7.0
  */
