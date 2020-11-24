@@ -1,3 +1,6 @@
+### 1.0.5: November 24th, 2020
+* Remove debug
+
 ### 1.0.4: November 24th, 2020
 * Remove debug
 

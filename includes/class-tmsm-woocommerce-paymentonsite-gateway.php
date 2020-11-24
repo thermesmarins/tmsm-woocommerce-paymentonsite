@@ -227,12 +227,10 @@ class WC_Gateway_Paymentonsite extends WC_Gateway_COD {
 	 */
 	private function load_shipping_method_options() {
 
-		echo '***paymentonsite load_shipping_method_options';
 		// Since this is expensive, we only want to do it if we're actually on the settings page.
 		if ( ! $this->is_accessing_settings() ) {
 			return array();
 		}
-		echo '***paymentonsite load_shipping_method_options ok';
 
 		$data_store = WC_Data_Store::load( 'shipping-zone' );
 		$raw_zones  = $data_store->get_zones();
