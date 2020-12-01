@@ -140,7 +140,7 @@ class WC_Gateway_Paymentonsite extends WC_Gateway_COD {
 
 		//return true; // for tests
 
-		if( ! WC() && ! WC()->cart){
+		if( ! WC() || ! WC()->cart){
 			return false;
 		}
 
