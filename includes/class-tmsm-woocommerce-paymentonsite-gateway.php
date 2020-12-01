@@ -140,6 +140,10 @@ class WC_Gateway_Paymentonsite extends WC_Gateway_COD {
 
 		//return true; // for tests
 
+		if( ! WC() && ! WC()->cart){
+			return false;
+		}
+
 		$cart_items = WC()->cart->get_cart_contents();
 
 		$appointmentonly = true;
@@ -166,10 +170,13 @@ class WC_Gateway_Paymentonsite extends WC_Gateway_COD {
 
 		//return true; // for tests
 
+		if( ! $order ) {
+			return false;
+		}
+
 		$order_id = WC_Order_Factory::get_order_id( $order );
 
 		$order = wc_get_order($order_id);
-
 
 		$appointmentonly = true;
 

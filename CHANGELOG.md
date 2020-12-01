@@ -1,3 +1,5 @@
+* Check WooCommerce cart exists in some functions
+
 ### 1.0.5: November 24th, 2020
 * Remove debug
 
